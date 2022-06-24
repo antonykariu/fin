@@ -1,25 +1,28 @@
-import express, { Express, Request, Response } from "express";
-import {connect} from "mongoose";
+import express, { Application, Request, Response } from "express";
 import dotenv from "dotenv";
+import http from "http";
+import { createHttpTerminator } from "http-terminator";
+import "./process";
+
+//? Routes
 import router from "./routes/routes";
 
+// TODO add Error handling
+// TODO add controllers
+// TODO add session management
 
 dotenv.config();
-const app: Express = express();
-const port: any = process.env.PORT;
-const uri: any = process.env.URI;
-
-connect(uri) // * Connect to mongodb 
-
-// TODO configure kubernetes
-
-app.use("/api", router)
+const app: Application = express();
+const port = process.env.PORT || 5000;
+export const server = http.createServer(app);
+export const httpTerminator = createHttpTerminator({ server });
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("Express + Typescript Server");
+  res.status(200).json({ message: "Hello" });
 });
+
+app.use("/", router);
 
 app.listen(port, () => {
-  console.log(`⚡️[server]: Server is running at https://localhost:${port} or is it`);
+  console.log(`⚡️[server]: is running on port ${port}`);
 });
-
