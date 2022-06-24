@@ -7,12 +7,11 @@ interface IUser {
 }
 
 const userSchema = new Schema<IUser>({
-    name: { type: String, required: true },
-    email: { type: String, required: true },
-    avatar: String
-})
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  avatar: String,
+});
 
-const User = model<IUser>('User', userSchema)
+const User = model<IUser>("User", userSchema);
 
-export default User
-
+export default User;
