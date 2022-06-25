@@ -13,7 +13,6 @@ exports.users = void 0;
 const users = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     // FIXME change to have error handling
     const uri = process.env.URI;
-    console.log(uri);
     // await connect(uri); // * Connect to mongodb
     //! CREATE USER
     // const user = new User({ name: "antony", email: "antonykaranja3@gmail.com" });

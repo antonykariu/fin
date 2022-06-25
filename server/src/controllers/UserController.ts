@@ -9,7 +9,6 @@ export const users = async (
 ) => {
   // FIXME change to have error handling
   const uri: any = process.env.URI;
-  console.log(uri);
 
   // await connect(uri); // * Connect to mongodb
   //! CREATE USER

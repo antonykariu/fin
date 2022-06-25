@@ -7,10 +7,12 @@ import { errorHandler } from "./errors/ErrorHandler";
 import "./process";
 
 //? Routes
-import userRouter from './routes/user.routes'
+import userRouter from "./routes/user.routes";
+import spendRouter from "./routes/spend.routes";
 
 // // TODO add Error handling
 // // TODO add controllers
+// // TODO  add documentation Typedoc
 // TODO add spend Feature
 // TODO add logging
 // TODO add session management
@@ -26,6 +28,7 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.use("/user", userRouter);
+app.use("/spend", spendRouter);
 
 //! Error handling
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {

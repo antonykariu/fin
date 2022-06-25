@@ -13,8 +13,10 @@ const ErrorHandler_1 = require("./errors/ErrorHandler");
 require("./process");
 //? Routes
 const user_routes_1 = __importDefault(require("./routes/user.routes"));
+const spend_routes_1 = __importDefault(require("./routes/spend.routes"));
 // // TODO add Error handling
 // // TODO add controllers
+// TODO  add documentation Typedoc
 // TODO add spend Feature
 // TODO add logging
 // TODO add session management
@@ -27,6 +29,7 @@ app.get("/", (req, res) => {
     res.status(200).json({ message: "Hello" });
 });
 app.use("/user", user_routes_1.default);
+app.use("/spend", spend_routes_1.default);
 //! Error handling
 app.use((err, req, res, next) => {
     // Log error here
